@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0a0b" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="description" content="Верити — жёлтый смайлик из хоррор-сериала по Minecraft, который захватил соцсети в 2026. История мема, родня, правила выживания и мем-кухня." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>ВЕРИТИ — мем из Minecraft, который знает всё</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="jumpscare" id="jumpscare" aria-hidden="true"></div>
+
+  <header class="header" id="header">
+    <a class="brand" href="#hero" aria-label="Верити — на главную">
+      <svg class="brand-face" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="14" fill="#ffd60a" />
+        <ellipse cx="11.5" cy="13" rx="1.8" ry="2.7" fill="#0a0a0b" />
+        <ellipse cx="20.5" cy="13" rx="1.8" ry="2.7" fill="#0a0a0b" />
+        <path d="M9.5 19c1.8 3.8 11.2 3.8 13 0-1.8 1.8-11.2 1.8-13 0Z" fill="#0a0a0b" />
+      </svg>
+      <span class="brand-name">ВЕРИТИ<span class="brand-suffix">.fan</span></span>
+    </a>
+    <span class="header-tag">мем-энциклопедия · 2026</span>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span>Minecraft horror · захватил соцсети</p>
+          <h1 class="glitch" data-text="ВЕРИТИ">ВЕРИТИ</h1>
+          <p class="hero-note">жёлтый смайлик, который слишком много знает</p>
+          <p class="hero-tagline">«Хей, привет. Я Верити — твой личный друг-помощник».</p>
+          <p class="hero-sub">Спроси меня о чём угодно. Я знаю всё. И обязательно следи за тем, что случится через три дня.</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#story">Кто такой Верити</a>
+            <a class="btn btn-ghost" href="#memes">Сделать мем</a>
+          </div>
+
+          <div class="countdown" aria-label="Таймер до третьего дня">
+            <div class="countdown-head">
+              <span>до того самого дня</span>
+              <span class="live-dot" aria-hidden="true"></span>
+            </div>
+            <div class="countdown-timer">
+              <div class="cd-cell"><b id="cd-h">71</b><span>часов</span></div>
+              <span class="cd-sep" aria-hidden="true">:</span>
+              <div class="cd-cell"><b id="cd-m">59</b><span>минут</span></div>
+              <span class="cd-sep" aria-hidden="true">:</span>
+              <div class="cd-cell"><b id="cd-s">59</b><span>секунд</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-face-wrap" id="faceWrap">
+          <span class="sticker" aria-hidden="true">IT'S ME<br /><b>ВЕРИТИ!</b></span>
+          <button class="face" id="face" type="button" aria-label="Нажать на Верити">
+            <svg class="face-svg" viewBox="0 0 320 320" aria-hidden="true">
+              <circle cx="160" cy="160" r="150" fill="var(--face, #ffd60a)" />
+              <ellipse cx="108" cy="100" rx="72" ry="46" fill="#fff" opacity=".16" />
+              <g class="face-normal">
+                <ellipse class="eye" cx="112" cy="138" rx="17" ry="26" fill="#0a0a0b" />
+                <ellipse class="eye" cx="208" cy="138" rx="17" ry="26" fill="#0a0a0b" />
+                <path d="M96 192C118 240 202 240 224 192C202 214 118 214 96 192Z" fill="#0a0a0b" />
+              </g>
+              <g class="face-scary">
+                <path d="M94 120 130 156M130 120 94 156" stroke="#0a0a0b" stroke-width="15" stroke-linecap="round" />
+                <path d="M190 120 226 156M226 120 190 156" stroke="#0a0a0b" stroke-width="15" stroke-linecap="round" />
+                <path d="M82 184C118 264 202 264 238 184C202 216 118 216 82 184Z" fill="#0a0a0b" />
+                <path d="M104 196 114 216 124 196 134 216 144 196 154 216 164 196 174 216 184 196 194 216 204 196 214 216 224 196Z" fill="#f7f3e8" />
+              </g>
+            </svg>
+          </button>
+          <p class="face-hint" id="faceHint">нажми на смайлик. он не кусается.*</p>
+          <p class="fineprint">*не подтверждено</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span>я знаю всё</span><span>✦</span><span>я твой друг</span><span>✦</span><span>через 3 дня</span><span>✦</span><span>не оборачивайся</span><span>✦</span><span>улыбнись</span><span>✦</span>
+        </div>
+        <div class="marquee-group">
+          <span>я знаю всё</span><span>✦</span><span>я твой друг</span><span>✦</span><span>через 3 дня</span><span>✦</span><span>не оборачивайся</span><span>✦</span><span>улыбнись</span><span>✦</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STORY -->
+    <section class="section" id="story">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <span class="kicker">01 / история</span>
+          <h2>Он просто хотел помочь</h2>
+          <p class="section-lead">Осенью 2026 года соцсети захватил жёлтый смайлик с очень широкой улыбкой. Дети кричат «Верити» при виде любого жёлтого шарика, снимают косплеи и поют песню про монстра из Minecraft. Взрослые всё ещё не в теме.</p>
+        </div>
+
+        <div class="facts reveal">
+          <div class="fact"><span>автор</span><b>ThatMob</b></div>
+          <div class="fact"><span>премьера</span><b>30.05.2026</b></div>
+          <div class="fact"><span>формат</span><b>хоррор-ARG</b></div>
+          <div class="fact"><span>главный хит</span><b>Horror Skunx</b></div>
+        </div>
+
+        <ol class="timeline reveal">
+          <li>
+            <span class="timeline-date">30 мая 2026</span>
+            <div class="timeline-body">
+              <h3>«Something is Knocking at Your Door»</h3>
+              <p>ThatMob выпускает первый ролик. Герой ставит мод, находит коробку, а внутри — дружелюбный смайлик. Верити обещает отвечать на любые вопросы и просит следить за тем, что случится через три дня.</p>
+            </div>
+          </li>
+          <li>
+            <span class="timeline-date">10 июля 2026</span>
+            <div class="timeline-body">
+              <h3>Песня, которая всё сломала</h3>
+              <p>Horror Skunx выпускает клип «It's Me, It's Verity». Миллионы просмотров, переводы, каверы и ремиксы. Мем выходит за пределы Minecraft-тусовки.</p>
+            </div>
+          </li>
+          <li>
+            <span class="timeline-date">лето 2026</span>
+            <div class="timeline-body">
+              <h3>Фанаты берут всё в свои руки</h3>
+              <p>Появляется фанатский мод, игры в Roblox, эдиты, косплеи и брейнрот-анимации. У Верити обнаруживается цветная родня: Фолсити, Круэлти, Ловити и другие.</p>
+            </div>
+          </li>
+          <li>
+            <span class="timeline-date">сентябрь 2026</span>
+            <div class="timeline-body">
+              <h3>Мем выходит в мейнстрим</h3>
+              <p>Энн Хэтэуэй произносит мемную фразу в промо экранизации «Верити» — и тренд окончательно уезжает в большой интернет.</p>
+            </div>
+          </li>
+          <li>
+            <span class="timeline-date">сейчас</span>
+            <div class="timeline-body">
+              <h3>Ты на этом сайте</h3>
+              <p>Значит, он уже знает, что ты здесь. Шутка. Наверное.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- RULES -->
+    <section class="section section-alt" id="rules">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <span class="kicker">02 / правила</span>
+          <h2>Инструкция по выживанию</h2>
+          <p class="section-lead">Ничего сложного. Просто не забывай, что это он тебя нашёл, а не наоборот.</p>
+        </div>
+        <div class="rules reveal">
+          <article class="rule">
+            <span class="rule-num">01</span>
+            <h3>Не спрашивай, откуда он знает</h3>
+            <p>Он всё равно ответит. И ответ тебе не понравится — не потому что страшный, а потому что слишком точный.</p>
+          </article>
+          <article class="rule">
+            <span class="rule-num">02</span>
+            <h3>Не считай дни вслух</h3>
+            <p>Особенно третий. Верити очень расстраивается, когда сбиваются со счёта.</p>
+          </article>
+          <article class="rule">
+            <span class="rule-num">03</span>
+            <h3>Улыбайся первым</h3>
+            <p>Это его язык. Если улыбнуться вторым, можно не успеть.</p>
+          </article>
+          <article class="rule">
+            <span class="rule-num">04</span>
+            <h3>Смайлик на соке — не смайлик</h3>
+            <p>Если он подмигнул, это не оптика. Просто переставь упаковку и не оборачивайся.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAMILY -->
+    <section class="section" id="family">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <span class="kicker">03 / родня</span>
+          <h2>У Верити есть родня</h2>
+          <p class="section-lead">Цвет — это характер. Нажми на карточку, чтобы узнать, что внутри. Только не задерживай взгляд слишком долго.</p>
+        </div>
+        <div class="family-scroller reveal" id="familyGrid"></div>
+        <p class="scroller-hint" aria-hidden="true">листай вбок →</p>
+      </div>
+    </section>
+
+    <!-- MEME LAB -->
+    <section class="section section-alt" id="memes">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <span class="kicker">04 / мем-кухня</span>
+          <h2>Собери своего Верити</h2>
+          <p class="section-lead">Выбери смайлика, впиши подпись и забери PNG. Только не подписывай своим именем — он и так его знает.</p>
+        </div>
+
+        <div class="lab reveal">
+          <div class="lab-controls">
+            <div class="field">
+              <span class="field-label">смайлик</span>
+              <div class="chips" id="faceChips" role="group" aria-label="Выбор смайлика"></div>
+            </div>
+
+            <label class="field" for="captionInput">
+              <span class="field-label">подпись <span class="field-count" id="captionCount">0 / 90</span></span>
+              <textarea id="captionInput" maxlength="90" rows="3" spellcheck="false" placeholder="напиши что-нибудь дружелюбное…">я знаю всё. даже то, что ты искал в 3 часа ночи.</textarea>
+            </label>
+
+            <div class="lab-actions">
+              <button class="btn btn-ghost btn-sm" type="button" id="randomCaption">Рандом</button>
+              <button class="btn btn-primary btn-sm" type="button" id="downloadMeme">Скачать PNG</button>
+            </div>
+            <p class="lab-note">* мем сгенерируется на твоём телефоне. Ничего никуда не отправляется. Пока что.</p>
+          </div>
+
+          <div class="meme-stage">
+            <div class="meme-preview" id="memePreview">
+              <div class="meme-face">
+                <svg viewBox="0 0 320 320" aria-hidden="true">
+                  <circle cx="160" cy="160" r="150" fill="var(--face, #ffd60a)" />
+                  <ellipse cx="108" cy="100" rx="72" ry="46" fill="#fff" opacity=".16" />
+                  <ellipse cx="112" cy="138" rx="17" ry="26" fill="#0a0a0b" />
+                  <ellipse cx="208" cy="138" rx="17" ry="26" fill="#0a0a0b" />
+                  <path d="M96 192C118 240 202 240 224 192C202 214 118 214 96 192Z" fill="#0a0a0b" />
+                </svg>
+              </div>
+              <p class="meme-text" id="memeText">я знаю всё. даже то, что ты искал в 3 часа ночи.</p>
+              <span class="meme-mark">verity.fan · 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <span class="kicker">05 / вопросы</span>
+          <h2>Коротко о странном</h2>
+        </div>
+        <div class="faq reveal">
+          <details>
+            <summary>Верити — это из Minecraft?</summary>
+            <p>Да. Это персонаж хоррор-веб-сериала ThatMob про мод для Minecraft. Официального мода нет — только фанатские, и они, мягко говоря, не обязаны быть безопасными.</p>
+          </details>
+          <details>
+            <summary>Почему именно три дня?</summary>
+            <p>По сюжету Верити предупреждает, что через три дня что-то случится. Что именно — лучше посмотреть самому. Спойлеры он не прощает.</p>
+          </details>
+          <details>
+            <summary>Это реально страшно?</summary>
+            <p>Сериал — хоррор, мемы — нет. Но если жёлтые смайлики теперь вызывают лёгкую тревогу, это нормально. Ты не один.</p>
+          </details>
+          <details>
+            <summary>Кто поёт песню?</summary>
+            <p>Horror Skunx. Клип «It's Me, It's Verity» вышел 10 июля 2026 года. Дальше — русские каверы, ремиксы и версии про «Верити с Майнкрафта».</p>
+          </details>
+          <details>
+            <summary>Это связано с книгой «Верити» Колин Гувер?</summary>
+            <p>Нет. Просто совпадение имён и волна мемов, которая случайно совпала с промо экранизации. Интернет любит такие пересечения.</p>
+          </details>
+          <details>
+            <summary>Можно ли завести такого дома?</summary>
+            <p>Фанаты собрали мод: он общается, запоминает привычки и постепенно становится враждебным. Скачивать стоит только из проверенных источников. И лучше не в одиночку.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <p class="footer-big" aria-hidden="true">ВЕРИТИ</p>
+        <div class="footer-bottom">
+          <p>Фанатский сайт про мем. Не связан с ThatMob, Horror Skunx и Mojang. Все шутки — шутки, все смайлики — вымышленные.</p>
+          <p class="footer-meta">сделано в 2026 · <a href="#hero">наверх ↑</a></p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <nav class="tabbar" aria-label="Навигация по сайту">
+    <a href="#hero" class="tab is-active">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.2 10.2h.01M15.8 10.2h.01M8.4 14.2c1 1.7 6.2 1.7 7.2 0"/></svg>
+      <span>Главная</span>
+    </a>
+    <a href="#story" class="tab">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></svg>
+      <span>История</span>
+    </a>
+    <a href="#family" class="tab">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg>
+      <span>Родня</span>
+    </a>
+    <a href="#memes" class="tab">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8Z"/><path d="m18 15 .8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8Z"/></svg>
+      <span>Мемы</span>
+    </a>
+  </nav>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
