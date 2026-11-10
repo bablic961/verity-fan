@@ -1432,6 +1432,13 @@ textarea:focus {
   color: var(--red);
 }
 
+.clicker-note {
+  margin-top: 0.55rem;
+  font-size: 0.56rem;
+  line-height: 1.5;
+  color: rgba(163, 160, 153, 0.65);
+}
+
 .clicker-panel {
   min-width: 0;
   padding-top: 0.85rem;
