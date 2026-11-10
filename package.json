@@ -2,7 +2,7 @@
   "name": "verity-fan-site",
   "version": "1.0.0",
   "private": true,
-  "description": "Мобильный фан-сайт про мем «Верити» из Minecraft",
+  "description": "Мобильный фан-сайт про мем «Верити» из Minecraft с кликером, шашками и шахматами",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

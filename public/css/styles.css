@@ -1876,7 +1876,7 @@ textarea:focus {
   width: 100%;
   max-width: 560px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 0.1rem;
   padding: 0.4rem 0.5rem calc(0.4rem + var(--safe-bottom));
   background: rgba(13, 13, 16, 0.88);
@@ -1897,16 +1897,20 @@ textarea:focus {
   min-height: 54px;
   border-radius: 14px;
   color: rgba(244, 241, 232, 0.46);
-  font-size: 0.56rem;
+  font-size: 0.52rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   transition: color 0.2s ease, background 0.2s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
+.tab span {
+  white-space: nowrap;
+}
+
 .tab svg {
-  width: 21px;
-  height: 21px;
+  width: 20px;
+  height: 20px;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.7;
