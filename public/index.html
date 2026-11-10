@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0a0a0b" />
   <meta name="color-scheme" content="dark" />
-  <meta name="description" content="Верити — жёлтый смайлик из хоррор-сериала по Minecraft, который захватил соцсети в 2026. История мема, родня, правила выживания и мем-кухня." />
+  <meta name="description" content="Верити — жёлтый смайлик из хоррор-сериала по Minecraft, который захватил соцсети в 2026. История мема, родня, Верити-кликер, правила выживания и мем-кухня." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -48,6 +48,7 @@
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="#story">Кто такой Верити</a>
+            <a class="btn btn-ghost" href="#clicker">Играть в кликер</a>
             <a class="btn btn-ghost" href="#memes">Сделать мем</a>
           </div>
 
@@ -205,11 +206,97 @@
       </div>
     </section>
 
-    <!-- MEME LAB -->
-    <section class="section section-alt" id="memes">
+    <!-- CLICKER -->
+    <section class="section section-alt" id="clicker">
       <div class="section-inner">
         <div class="section-head reveal">
-          <span class="kicker">04 / мем-кухня</span>
+          <span class="kicker">04 / кликер</span>
+          <h2>Верити-кликер</h2>
+          <p class="section-lead">Нажимай на Верити, копи «улыбки» и покупай друзей. Чем больше друзей — тем быстрее капает. Прогресс сохраняется в телефоне. Он и так уже знает.</p>
+        </div>
+
+        <div class="clicker reveal" id="clickerGame">
+          <div class="clicker-main">
+            <div class="clicker-topbar">
+              <div class="clicker-balance">
+                <span class="clicker-label">улыбки</span>
+                <b id="clickerBalance">0</b>
+                <span class="clicker-rate" id="clickerRate">+0 / сек</span>
+              </div>
+              <div class="clicker-level">
+                <span>ранг</span>
+                <b id="clickerRank">Новичок</b>
+              </div>
+            </div>
+
+            <div class="clicker-buff" id="clickerBuff" hidden></div>
+
+            <div class="clicker-progress" id="clickerProgressBar" role="progressbar" aria-label="Прогресс до следующего ранга" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <span id="clickerProgress"></span>
+            </div>
+            <p class="clicker-next" id="clickerNext">до «Друг»: 100</p>
+
+            <button class="clicker-face" id="clickerFace" type="button" aria-label="Нажать на Верити и получить улыбку">
+              <svg viewBox="0 0 320 320" aria-hidden="true">
+                <circle cx="160" cy="160" r="150" fill="var(--face, #ffd60a)" />
+                <ellipse cx="108" cy="100" rx="72" ry="46" fill="#fff" opacity=".16" />
+                <ellipse cx="112" cy="138" rx="17" ry="26" fill="#0a0a0b" />
+                <ellipse cx="208" cy="138" rx="17" ry="26" fill="#0a0a0b" />
+                <path d="M96 192C118 240 202 240 224 192C202 214 118 214 96 192Z" fill="#0a0a0b" />
+              </svg>
+              <span class="clicker-plus" id="clickerPlus" aria-hidden="true">+1</span>
+            </button>
+            <p class="clicker-hint" id="clickerHint">нажми на смайлик — он считает</p>
+
+            <div class="clicker-meta">
+              <div><span>за клик</span><b id="clickerPerClick">1</b></div>
+              <div><span>кликов</span><b id="clickerClicks">0</b></div>
+              <div><span>всего</span><b id="clickerTotal">0</b></div>
+              <div><span>печати</span><b id="clickerSeals">0</b></div>
+            </div>
+
+            <div class="clicker-actions">
+              <button class="btn btn-primary btn-sm" type="button" id="clickerPrestige" hidden>Переродиться</button>
+              <button class="clicker-reset" type="button" id="clickerReset">Сброс</button>
+            </div>
+          </div>
+
+          <div class="clicker-panel">
+            <div class="clicker-tabs" role="tablist" aria-label="Разделы кликера">
+              <button class="clicker-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="shopPanel" data-tab="shop">Магазин</button>
+              <button class="clicker-tab" type="button" role="tab" aria-selected="false" aria-controls="upgradesPanel" data-tab="upgrades">Улучшения <span class="clicker-badge" id="upgradeBadge" hidden>0</span></button>
+              <button class="clicker-tab" type="button" role="tab" aria-selected="false" aria-controls="achievementsPanel" data-tab="achievements">Зал <span class="clicker-badge" id="achievementBadge">0/0</span></button>
+            </div>
+
+            <div class="clicker-tabpanel" id="shopPanel" role="tabpanel">
+              <div class="shop-head">
+                <span class="shop-title">друзья и постройки</span>
+                <div class="buy-amounts" role="group" aria-label="Сколько покупать">
+                  <button class="buy-amount is-active" type="button" data-amount="1" aria-pressed="true">x1</button>
+                  <button class="buy-amount" type="button" data-amount="10" aria-pressed="false">x10</button>
+                  <button class="buy-amount" type="button" data-amount="100" aria-pressed="false">x100</button>
+                </div>
+              </div>
+              <div class="shop-list" id="shopList"></div>
+            </div>
+
+            <div class="clicker-tabpanel" id="upgradesPanel" role="tabpanel" hidden>
+              <div class="upgrade-list" id="upgradeList"></div>
+            </div>
+
+            <div class="clicker-tabpanel" id="achievementsPanel" role="tabpanel" hidden>
+              <div class="achievement-grid" id="achievementGrid"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEME LAB -->
+    <section class="section" id="memes">
+      <div class="section-inner">
+        <div class="section-head reveal">
+          <span class="kicker">05 / мем-кухня</span>
           <h2>Собери своего Верити</h2>
           <p class="section-lead">Выбери смайлика, впиши подпись и забери PNG. Только не подписывай своим именем — он и так его знает.</p>
         </div>
@@ -253,10 +340,10 @@
     </section>
 
     <!-- FAQ -->
-    <section class="section" id="faq">
+    <section class="section section-alt" id="faq">
       <div class="section-inner">
         <div class="section-head reveal">
-          <span class="kicker">05 / вопросы</span>
+          <span class="kicker">06 / вопросы</span>
           <h2>Коротко о странном</h2>
         </div>
         <div class="faq reveal">
@@ -311,6 +398,10 @@
     <a href="#family" class="tab">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg>
       <span>Родня</span>
+    </a>
+    <a href="#clicker" class="tab">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4l6.5 16 2.2-6.3L20 11.5 5 4Z"/><path d="M14 14l4 4"/></svg>
+      <span>Кликер</span>
     </a>
     <a href="#memes" class="tab">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8Z"/><path d="m18 15 .8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8Z"/></svg>
